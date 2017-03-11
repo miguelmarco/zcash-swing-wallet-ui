@@ -26,7 +26,7 @@ quite-user-friendly [installation guide](https://www.cryptocompare.com/wallets/g
 and [usage guide](https://www.cryptocompare.com/wallets/guides/how-to-use-the-zcash-gui-wallet).
 The following video also explains how to [set up the GUI wallet](https://www.youtube.com/watch?v=IDifG4h1bgE). 
 Users who insist on downloading a binary release may instead 
-use [ZCash Desktop GUI Wallet - binary release v0.62-beta](https://github.com/vaklinov/zcash-swing-wallet-ui/blob/master/docs/Release_0.62-beta.md)
+use [ZCash Desktop GUI Wallet - binary release v0.65-beta](https://github.com/vaklinov/zcash-swing-wallet-ui/blob/master/docs/Release_0.65-beta.md)
 
 
 1. Operating system and tools
