@@ -49,6 +49,7 @@ import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JMenuItem;
 import javax.swing.JPanel;
+import javax.swing.JOptionPane;
 import javax.swing.JScrollPane;
 import javax.swing.JTable;
 import javax.swing.KeyStroke;
@@ -135,8 +136,52 @@ public class TransactionTable
 				}
 			}
 		});
+		
+    JMenuItem showMemoField = new JMenuItem("Show Memo field");
+	popupMenu.add(showMemoField);
+    
+    showMemoField.addActionListener(new ActionListener() 
+        {	
+			@Override
+			public void actionPerformed(ActionEvent e) 
+			{
+				if ((lastRow >= 0) && (lastColumn >= 0))
+				{
+					try
+					{
+						String txID = TransactionTable.this.getModel().getValueAt(lastRow, 6).toString();
+						txID = txID.replaceAll("\"", ""); // In case it has quotes
+						
+						String acc = TransactionTable.this.getModel().getValueAt(lastRow, 5).toString();
+						acc = acc.replaceAll("\"", ""); // In case it has quotes
+						
+						System.out.println("Transaction ID for Memo field is: " + txID);
+						System.out.println("Account for Memo field is: " + acc);
+ 						String MemoField = caller.getMemoField(acc, txID);
+ 						System.out.println("Memo field is: " + MemoField);
+ 						
+ 						
+ 						JOptionPane.showMessageDialog(parent, MemoField,  "Memo Field:", JOptionPane.PLAIN_MESSAGE);
+// 						DetailsDialog dd = new DetailsDialog(parent, details);
+// 						dd.setVisible(true);
+					} catch (Exception ex)
+					{
+						ex.printStackTrace();
+						// TODO: report exception to user
+					}
+				} else
+				{
+					// Log perhaps
+				}
+			}
+		});
+    
+		
 	} // End constructor
 
+
+
+	
 	
 	
 	private static class DetailsDialog
